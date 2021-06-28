@@ -1,0 +1,22 @@
+
+
+<?php
+
+include "dbconnection.php"; // Using database connection file here
+$email = $_POST['Email'];
+$records = mysqli_query($db,"select * from logindetails where Email='$email'"); // fetch data from database
+
+while($data = mysqli_fetch_array($records))
+{
+?>
+ <?php echo $data['Email']; ?>
+    <?php echo $data['phoneNumber']; ?>
+    <?php echo $data['Profile_img']; ?>
+<?php
+}
+?>
+
+
+<?php mysqli_close($db);  // close connection ?>
+
+
